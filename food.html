@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surplus Food Collection Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background: url('BGi.JPG') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    background-color: WHITE;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+label input, label textarea, label select {
+    flex: 1;
+    margin: 10px;
+    margin-left: 10px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: GREEN;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+    </style>
+    <script>
+        document.getElementById('food-donation-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const donorName = document.getElementById('donor-name').value;
+    const contactNumber = document.getElementById('contact-number').value;
+    const email = document.getElementById('email').value;
+    const foodType = document.getElementById('food-type').value;
+    const quantity = document.getElementById('quantity').value;
+    const pickupAddress = document.getElementById('pickup-address').value;
+    const availabilityDate = document.getElementById('availability-date').value;
+
+    // Perform form validation if necessary
+
+    const donationDetails = {
+        donorName,
+        contactNumber,
+        email,
+        foodType,
+        quantity,
+        pickupAddress,
+        availabilityDate
+    };
+
+    console.log('Donation Details:', donationDetails);
+
+    // Here you can send the data to the server or process it as required
+    alert('Thank you for your donation!');
+});
+
+    </script>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Donate Surplus Food</h1>
+        <form id="food-donation-form">
+            <label for="donor-name">Donor Name:<input type="text" id="donor-name" name="donorName" required></label>
+            
+
+            <label for="contact-number">Contact Number:<input type="tel" id="contact-number" name="contactNumber" required></label>
+            
+
+            <label for="email">Email:<input type="email" id="email" name="email" ></label>
+            
+
+            <label for="food-type">Type of Food:<input type="text" id="food-type" name="foodType" required></label>
+            
+
+            <label for="quantity">Quantity (in kg):<input type="number" id="quantity" name="quantity" required></label>
+            
+
+            <label for="pickup-address">Pickup Address:<textarea id="pickup-address" name="pickupAddress" rows="4" required></textarea></label>
+            
+
+            <label for="availability-date">Date Available for Pickup:<input type="date" id="availability-date" name="availabilityDate" required></label>
+            
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
